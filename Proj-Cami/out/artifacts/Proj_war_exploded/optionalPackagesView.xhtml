@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="dataView.xhtml">
+    <ui:define name="dataViewContent">
+        <div class="content-body">
+            <h2 style="text-align: center">#{msg['bs-lecturers-list']}</h2>
+
+            <h:commandButton styleClass="button" value="View optional packages" immediate="true" action="#{optionalPackages.getAll}"/>
+
+            <h:dataTable id="dataTablee" styleClass="my-table" value="#{optionalPackages.allOptionalPackages}" var="optionalPackage">
+                <h:column>
+                    <f:facet name="header">Package number</f:facet>
+                    #{optionalPackage.packageNumber}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Year</f:facet>
+                    <h:inputText styleClass="my-input" id="txtInput" type="text" value = "#{optionalPackage.year}" rendered="#{optionalPackage.editable}" />
+                    <h:outputText value = "#{optionalPackage.year}" rendered="#{not optionalPackage.editable}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Semester</f:facet>
+                    <h:inputText styleClass="my-input" id="txtInputt" type="text" value = "#{optionalPackage.semester}" rendered="#{optionalPackage.editable}" />
+                    <h:outputText value = "#{optionalPackage.semester}" rendered="#{not optionalPackage.editable}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">#{msg['bs-lecturers-actions-table']}</f:facet>
+                    <div style="float: left;">
+                        <i class="fas fa-pencil-alt"/><h:commandButton styleClass="edit" value="#{msg['bs-lecturers-edit']}" action="#{optionalPackages.edit(optionalPackage)}"/>
+                    </div>
+                    <div style="float: right;">
+                        <i class="fas fa-trash-alt"/><h:commandButton styleClass="delete" value="#{msg['bs-lecturers-delete']}" action="#{optionalPackages.delete(optionalPackage.packageNumber)}" />
+                    </div>
+                </h:column>
+
+            </h:dataTable>
+            <h:commandButton styleClass="button" value="#{msg['bs-save']}" action="#{lecturers.save}"/>
+
+            <!--nu se vede-->
+            <h:form>
+                <p:commandLink style="color: white; display: none" value="Add Student" action="#{lecturer.add}" resetValues="true" />
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>
+
+</html>

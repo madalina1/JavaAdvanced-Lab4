@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui" xml:lang="en" lang="en">
+
+
+<ui:composition template="dataView.xhtml">
+    <ui:define name="dataViewContent">
+        <div class="content-body">
+            <h2 style="text-align: center">#{msg['bs-lecturers-list']}</h2>
+
+            <h:commandButton styleClass="button" value="View lecturers" immediate="true" action="#{lecturers.getAll}"/>
+
+            <h:dataTable id="dataTablee" styleClass="my-table" value="#{lecturers.allLecturers}" var="lecturer">
+                <h:column>
+                    <f:facet name="header">#{msg['bs-lecturers-name-table']}</f:facet>
+                    #{lecturer.name}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">#{msg['bs-courses']}</f:facet>
+                    <h:inputText styleClass="my-input" id="txtInput" type="text" value = "#{lecturer.course}" rendered="#{lecturer.editable}" />
+                    <h:outputText value = "#{lecturer.course}" rendered="#{not lecturer.editable}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Email</f:facet>
+                    <h:inputText styleClass="my-input" id="das" type="text" value = "#{lecturer.email}" rendered="#{lecturer.editable}" />
+                    <h:outputText value = "#{lecturer.email}" rendered="#{not lecturer.editable}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">#{msg['bs-lecturers-actions-table']}</f:facet>
+                    <div style="float: left;">
+                        <i class="fas fa-pencil-alt"/><h:commandButton styleClass="edit" value="#{msg['bs-lecturers-edit']}" action="#{lecturers.edit(lecturer)}"/>
+                    </div>
+                    <div style="float: right;">
+                        <i class="fas fa-trash-alt"/><h:commandButton styleClass="delete" value="#{msg['bs-lecturers-delete']}" action="#{lecturers.delete(lecturer.name)}" />
+                    </div>
+                </h:column>
+
+            </h:dataTable>
+            <h:commandButton styleClass="button" value="#{msg['bs-save']}" action="#{lecturers.save}"/>
+        </div>
+
+        <!--nu se vede-->
+        <h:form>
+            <p:commandLink style="color: white;  display: none" value="Add Student" action="#{lecturer.add}" resetValues="true" />
+        </h:form>
+
+    </ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,234 @@
+* {
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto ', sans-serif;
+    font-size: 14px;
+    overflow: hidden;
+    color: white;
+}
+
+.container {
+    margin: 0 auto;
+}
+
+h2 {
+    margin-top: 0 !important;
+    padding-top: 20px;
+}
+
+/* navbar */
+.navbar {
+    padding: 30px 20px;
+    width: 100%;
+    height: auto;
+    background-color: #212121;
+}
+
+.logo {
+    color: white;
+}
+
+.logo,
+.nav {
+    display: inline-block;
+    margin: 0;
+}
+
+/* nav links */
+.nav {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.nav li {
+    display: inline-block;
+    margin-left: 40px;
+}
+
+.navbar a {
+    color: #FFF;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    color: #DDD;
+}
+
+/* if you want pull right nav links */
+.nav-right {
+    float: right;
+    line-height: 39px;
+}
+
+#body {
+    background: lightgrey url("resources/images/background-background-image-blue-sky-1054218.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.content-body {
+    margin-top: 50px;
+    border-radius: 20px;
+    padding: 50px 80px;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.my-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.my-form p {
+    display: flex;
+    flex-direction: column;
+}
+
+.my-input {
+    color: #0277BD;
+    background: #efefef;
+    border: 0;
+    border-radius: 3px;
+    outline: 0;
+    transition: all .3s ease-in-out;
+    padding: 5px 0 5px 10px;
+    font-weight: 400;
+    width: 30vh;
+}
+
+#footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer {
+    bottom: 0 !important;
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+.content {
+    color: white;
+    font-size: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    background: none;
+}
+
+.button {
+    outline: none;
+    background-color: #0277BD;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    margin-top: 10px;
+    align-self: center;
+    width: 80%;
+}
+
+.button:hover {
+    background-color: #0288D1;
+
+}
+
+.view-button {
+    text-decoration: none;
+    border: solid 2px #0277BD;
+    font-size: 16px;
+    color: #0277BD;
+    padding: 10px;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+    margin-top: 20px;
+    align-self: center;
+    width: 80%;
+}
+
+.view-button:hover {
+    text-decoration: none;
+    background-color: #0277BD;
+    color: white;
+}
+
+.my-table {
+    width: 60vh;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.my-table th, .my-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid white;
+}
+
+.edit, .delete {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: #FAFAFA;
+    cursor: pointer;
+}
+
+/* responsive */
+@media screen and (max-width: 677px) {
+    .container {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .container {
+        width: 90%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .container {
+        width: 960px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}

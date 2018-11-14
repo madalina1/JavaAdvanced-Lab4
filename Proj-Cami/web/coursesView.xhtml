@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui" >
+
+<ui:composition template="dataView.xhtml">
+    <ui:define name="dataViewContent">
+        <div class="content-body">
+            <h2 style="text-align: center">#{msg['bs-courses-list']}</h2>
+
+            <h:commandButton styleClass="button" value="View lecturers" immediate="true" action="#{courses.getAll}"/>
+
+            <h:dataTable id="dataTablee" style="width: 80vh;" styleClass="my-table"  value="#{courses.allCourses}" var="course">
+                <h:column>
+                    <f:facet name="header">#{msg['bs-lecturers-name-table']}</f:facet>
+                    #{course.name}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">#{msg['bs-is-optional']}</f:facet>
+                    <h:inputText styleClass="my-input" id="txtInput" type="text" value = "#{course.optional}" rendered="#{course.editable}" />
+                    <h:outputText value = "#{course.optional}" rendered="#{not course.editable}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">#{msg['bs-package-number']}</f:facet>
+                    <h:inputText type="text" styleClass="my-input" value = "#{course.packageNumber}" rendered="#{course.editable}" />
+                    <h:outputText value = "#{course.packageNumber}" rendered="#{not course.editable}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">#{msg['bs-credits']}</f:facet>
+                    <h:inputText type="text" styleClass="my-input" value = "#{course.credits}" rendered="#{course.editable}" />
+                    <h:outputText value = "#{course.credits}" rendered="#{not course.editable}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">#{msg['bs-name-lecturer']}</f:facet>
+                    <h:inputText type="text" styleClass="my-input" value = "#{course.lecturerName}" rendered="#{course.editable}" />
+                    <h:outputText value = "#{course.lecturerName}" rendered="#{not course.editable}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">#{msg['bs-lecturers-actions-table']}</f:facet>
+                    <div style="float: left;">
+                        <i class="fas fa-pencil-alt"/><h:commandButton styleClass="edit" value="#{msg['bs-lecturers-edit']}" action="#{courses.edit(course)}"/>
+                    </div>
+                    <div style="float: right;">
+                        <i class="fas fa-trash-alt"/><h:commandButton styleClass="delete" value="#{msg['bs-lecturers-delete']}" action="#{courses.delete(course.name)}" />
+                    </div>
+                </h:column>
+
+            </h:dataTable>
+            <h:commandButton styleClass="button" value="#{msg['bs-save']}" action="#{courses.save}"/>
+
+            <!--nu se vede-->
+            <h:form>
+                <p:commandLink style="display: none" value="Add Student" action="#{course.add}" resetValues="true" />
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>
+
+</html>

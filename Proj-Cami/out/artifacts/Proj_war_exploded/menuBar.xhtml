@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="navbar.css" type="text/css"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xml:lang="en" lang="en">
+
+<body>
+<ui:composition>
+    <div class="navbar">
+
+        <div class="container">
+
+            <h1 class="logo">#{msg['bs-faculty']}</h1>
+
+            <ul class="nav nav-right">
+                <li><p:link href="index.xhtml" value="#{msg['bs-home']}" /></li>
+                <li><p:link href="convertor.xhtml" value="#{msg['bs-convertor']}" /></li>
+                <li><p:link href="lecturers.xhtml" value="#{msg['bs-lecturers']}" /></li>
+                <li><p:link href="courses.xhtml" value="#{msg['bs-courses']}" /></li>
+                <li><p:link href="optionalPackages.xhtml" value="#{msg['bs-optional-packages']}" /></li>
+            </ul>
+
+            <h:form style="text-align: -webkit-right; margin-top: -23px;">
+                <h:panelGrid columns="2">
+                    Language:
+                    <h:selectOneMenu value="#{language.localeCode}" onchange="submit()" valueChangeListener="#{language.countryLocaleCodeChanged}">
+                        <f:selectItems value="#{language.countriesInMap}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+            </h:form>
+        </div><!--/.container-->
+
+    </div><!--/.navbar-->
+
+</ui:composition>
+</body>
+</html>

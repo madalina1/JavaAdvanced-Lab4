@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:body>
+    <ui:composition template="page.xhtml">
+        <ui:define name="content">
+            <div class="content-body">
+                <h1 style="margin-top: 0 !important; text-align: center">#{msg['bs-convertor']}</h1>
+
+                <h:form>
+                    <h:inputText styleClass="my-input" id = "urlInput" value = "#{userData.data}"
+                                 label = "URL" >
+                        <f:converter converterId = "urlConverter" />
+                    </h:inputText>
+                    <h:commandButton styleClass="button" style="width: auto; margin-left: 20px; padding: 5px 10px;" value = "Submit" action = "result"/>
+                    <h:message for = "urlInput" style = "color:red" />
+                </h:form>
+            </div>
+
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+    <ui:composition template="page.xhtml">
+        <ui:define name="content">
+            <div class="content-body">
+                <h1>#{msg['bs-optional-packages']}</h1>
+
+                <h:form styleClass="my-form">
+                    <p>
+                        <p:inputText styleClass="my-input" id="oname" value="#{optionalPackage.packageNumber}" required="true" placeholder="#{msg['bs-package-number']}"/>
+                    </p>
+
+                    <p>
+                        <p:inputText styleClass="my-input" id="coptional" value="#{optionalPackage.year}" placeholder="#{msg['bs-year']}" required="true"/>
+                    </p>
+
+                    <p>
+                        <p:inputText styleClass="my-input" id="cpackage" value="#{optionalPackage.semester}" placeholder="#{msg['bs-semester']}" required="true"/>
+                    </p>
+
+                    <p:commandButton styleClass="button" value="Add optional package" action="#{optionalPackage.add}" resetValues="true" />
+                    <p:link styleClass="view-button" href="/optionalPackagesView.xhtml" value="#{msg['bs-all-optional']}"/>
+                </h:form>
+            </div>
+
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>

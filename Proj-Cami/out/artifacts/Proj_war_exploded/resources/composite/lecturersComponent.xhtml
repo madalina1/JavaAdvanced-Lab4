@@ -1,0 +1,27 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui" xmlns:f="http://java.sun.com/jsf/core">
+
+<h:body>
+    <composite:interface>
+        <composite:attribute name="lecturerName" required="false"/>
+        <composite:attribute name="lecturerCourse" required="false"/>
+        <composite:attribute name="lecturerEmail" required="false"/>
+        <!--<composite:attribute name="add" method-signature="void add(com.models.Lecturer"/>-->
+    </composite:interface>
+    <composite:implementation>
+        <p>
+            <p:inputText styleClass="my-input" style="margin-bottom: 10px;" id="pname" value="#{cc.attrs.lecturerName}" placeholder="#{msg['bs-name-lecturer']}" />
+            <p:inputText styleClass="my-input" style="margin-bottom: 10px;" id="pemail" value="#{cc.attrs.lecturerCourse}" placeholder="#{msg['bs-courses']}" />
+            <p:inputText styleClass="my-input" id="email" value="#{cc.attrs.lecturerEmail}" placeholder="Email" >
+                <f:validator validatorId="emailValidator"/>
+            </p:inputText>
+
+        </p>
+
+        <!--<p:commandButton styleClass="button" value="Add Lecturer" action="#{cc.attrs.add}"  />
+        <p:link styleClass="view-button" href="/lecturersView.xhtml" value="#{msg['bs-all-lecturers']}"/>-->
+    </composite:implementation>
+</h:body>
+</html>

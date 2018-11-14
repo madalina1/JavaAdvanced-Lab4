@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+    <ui:composition template="page.xhtml">
+        <ui:define name="content">
+            <div class="content-body">
+                <h1>#{msg['bs-courses']}</h1>
+
+                <h:form styleClass="my-form">
+                    <p>
+                        <p:inputText styleClass="my-input" id="cname" placeholder="#{msg['bs-lecturers-name-table']}" value="#{course.name}" required="true" />
+                    </p>
+
+                    <p>
+                        <p:inputText styleClass="my-input" id="coptional" placeholder="#{msg['bs-is-optional']}" value="#{course.optional}" required="true" />
+                    </p>
+
+                    <p>
+                        <p:inputText styleClass="my-input" id="cpackage" placeholder="#{msg['bs-package-number']}" value="#{course.packageNumber}" required="true" />
+                    </p>
+
+                    <p>
+                        <p:inputText styleClass="my-input" id="ccredits" value="#{course.credits}" placeholder="#{msg['bs-credits']}" required="true" />
+                    </p>
+
+                    <p>
+                        <p:inputText styleClass="my-input" id="clecturer" value="#{course.lecturerName}" required="true" placeholder="#{msg['bs-name-lecturer']}" />
+                    </p>
+
+                    <p:commandButton styleClass="button" value="Add course" action="#{course.add}" resetValues="true" />
+                    <p:link styleClass="view-button" href="/coursesView.xhtml" value="#{msg['bs-all-courses']}"/>
+                </h:form>
+            </div>
+
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>
